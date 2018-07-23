@@ -9,7 +9,7 @@ export class AngularTestsComponent implements OnInit {
 
 	public events: string = '';
 	public keys: string = '';
-	public value: string = '';
+	public values: Array<string> = ['Adam', 'Hanz', 'Richard']
 
 	constructor() { }
 
@@ -20,7 +20,9 @@ export class AngularTestsComponent implements OnInit {
 	}
 
 	public keyUpValue(value: string) {
-		this.value = value;
+		if (value.trim()){
+			this.values.push(value);
+		}
 	}
 
 	ngOnInit() {

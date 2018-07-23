@@ -4,5 +4,11 @@
 <p>Events: {{events}}</p>
 <p>Keys: {{keys}}</p>
 
-<input #name (keyup.enter)="keyUpValue(name.value)" placeholder="Adam">
-<p>{{value}}</p>
+<input #name 
+	(keyup.enter)="keyUpValue(name.value); name.value = ''" 
+	(blur)="keyUpValue(name.value); name.value = ''" 
+	placeholder="Adam">
+<button (click)="keyUpValue(name.value); name.value = ''">+</button>
+<ul>
+	<li *ngFor="let name of values">{{ name }}</li>
+</ul>
