@@ -1,0 +1,8 @@
+<h3>Events</h3>
+
+<input (keyup)="keyUpEvent($event)">
+<p>Events: {{events}}</p>
+<p>Keys: {{keys}}</p>
+
+<input #name (keyup.enter)="keyUpValue(name.value)" placeholder="Adam">
+<p>{{value}}</p>
