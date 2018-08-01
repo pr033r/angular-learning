@@ -1,0 +1,44 @@
+<div class="container">
+	<h1>Reactive form</h1>
+	<input class="form-control" type="text" [formControl]="name">
+	
+	<br>
+	<button class="btn btn-success" type="button" (click)="updateName()">Update name</button>
+	<br>
+	<hr>
+	<br>
+
+	<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+		<label>
+			First name:
+			<input class="form-control" type="text" formControlName="firstName">
+		</label><br>
+		<label>
+			Last name:
+			<input class="form-control" type="text" formControlName="lastName">
+		</label><br>
+		
+		<div formGroupName="address">
+			<h3>Address</h3>
+			<label>
+				street:
+				<input class="form-control" type="text" formControlName="street">
+			</label><br>
+			<label>
+				city:
+				<input class="form-control" type="text" formControlName="city">
+			</label><br>
+			<label>
+				state:
+				<input class="form-control" type="text" formControlName="state">
+			</label><br>
+			<label>
+				zip:
+				<input class="form-control" type="text" formControlName="zip">
+			</label><br>
+		</div>
+
+		<button class="btn btn-success" type="submit" (click)="updateProfile()" [disabled]="!profileForm.valid">Update profile</button>
+	</form>
+
+</div>
