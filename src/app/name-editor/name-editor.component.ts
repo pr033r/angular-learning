@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
 	selector: 'app-name-editor',
@@ -22,7 +22,7 @@ export class NameEditorComponent implements OnInit {
 	});
 
 	public profileFormBuilder = this.fb.group({
-		firstName: [''],
+		firstName: ['', Validators.required],
 		lastName: [''],
 		address: this.fb.group({
       		street: [''],
@@ -51,8 +51,21 @@ export class NameEditorComponent implements OnInit {
 		});
 	}
 
+	public updateProfileFormBuilder(): void {
+		this.profileFormBuilder.patchValue({
+			firstName: 'Till',
+			address: {
+				city: 'Berlin'
+			}
+		});	
+	}
+
 	public onSubmit(): void {
 		console.warn(this.profileForm.value);
+	}
+
+	public onSubmitFormBuilder(): void {
+		console.warn(this.profileFormBuilder.value);	
 	}
 
 }
