@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormArray, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
 	selector: 'app-name-editor',
@@ -29,12 +29,24 @@ export class NameEditorComponent implements OnInit {
       		city: [''],
       		state: [''],
       		zip: ['']
-    		})
+    		}),
+		aliases: this.fb.array([
+			this.fb.control('1st form builder control'),
+			this.fb.control('2nd form builder control')
+			])
 	});
 
 	constructor(private fb: FormBuilder) { }
 
 	ngOnInit() {
+	}
+
+	get aliases() {
+		return this.profileFormBuilder.get('aliases') as FormArray;
+	}
+
+	public addAlias() {
+		this.aliases.push(this.fb.control('defaultValue'));
 	}
 
 	public updateName(): void {

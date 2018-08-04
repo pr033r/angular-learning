@@ -74,6 +74,19 @@
 			</label><br>
 		</div>
 
+		<div formArrayName="aliases">
+			<h3>Aliases via this.fb.array([...])</h3> 
+			<button class="btn btn-primary"
+				(click)="addAlias()">Add Alias</button><br>
+
+			<div *ngFor="let address of aliases.controls; let i=index">
+		    	<label>
+		      		Added alias:
+		      		<input class="form-control" type="text" [formControlName]="i">
+		    	</label>
+			</div>
+		</div><br>
+
 		<button class="btn btn-success" type="submit" 
 			(click)="updateProfileFormBuilder()" 
 			[disabled]="!profileFormBuilder.valid">Update profile</button>
