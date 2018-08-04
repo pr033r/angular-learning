@@ -12,6 +12,19 @@
 		<label>
 			First name:
 			<input class="form-control" type="text" formControlName="firstName">
+
+			<div *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)" class="alert alert-danger">
+				<div *ngIf="firstName.errors.required">
+					Name is required.
+				</div>
+				<div *ngIf="firstName.errors.minlength">
+					Name must be at least 4 characters long.
+				</div>
+				<!-- <div *ngIf="firstName.errors.forbiddenName">
+				    Name cannot be Bob.
+				</div> -->
+			</div>
+
 		</label><br>
 		<label>
 			Last name:
@@ -42,6 +55,7 @@
 			(click)="updateProfile()" 
 			[disabled]="!profileForm.valid">Update profile</button>
 	</form><br>
+
 
 	<h3>profileFormBuilder = this.fb.group(&#123;...&#125;)</h3>
 	<form [formGroup]="profileFormBuilder" (ngSubmit)="onSubmitFormBuilder()">

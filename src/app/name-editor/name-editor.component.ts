@@ -11,7 +11,10 @@ export class NameEditorComponent implements OnInit {
 	public name = new FormControl('');
 
 	public profileForm = new FormGroup({
-		firstName: new FormControl(''),
+		firstName: new FormControl('', [
+			Validators.required,
+			Validators.minLength(4)
+			]),
 		lastName: new FormControl(''),
 		address: new FormGroup({
       		street: new FormControl(''),
@@ -41,7 +44,11 @@ export class NameEditorComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	get aliases() {
+	public get firstName() {
+		return this.profileForm.get('firstName');
+	}
+
+	public get aliases() {
 		return this.profileFormBuilder.get('aliases') as FormArray;
 	}
 
@@ -80,4 +87,9 @@ export class NameEditorComponent implements OnInit {
 		console.warn(this.profileFormBuilder.value);	
 	}
 
+}
+
+// if name contains regex expresion
+export function forbiddenNameValidator(name: RegExp): ValidatorFn {
+	return (control: AbstractControl): {/* f-ction*/};
 }
