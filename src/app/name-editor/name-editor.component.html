@@ -13,22 +13,28 @@
 			First name:
 			<input class="form-control" type="text" formControlName="firstName">
 
-			<div *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)" class="alert alert-danger">
+			<div *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)" 
+				class="alert alert-danger">
 				<div *ngIf="firstName.errors.required">
 					Name is required.
 				</div>
 				<div *ngIf="firstName.errors.minlength">
 					Name must be at least 4 characters long.
 				</div>
-				<!-- <div *ngIf="firstName.errors.forbiddenName">
+				<div *ngIf="firstName.errors.forbiddenName">
 				    Name cannot be Bob.
-				</div> -->
+				</div>
 			</div>
 
 		</label><br>
 		<label>
 			Last name:
 			<input class="form-control" type="text" formControlName="lastName">
+
+			<div *ngIf="profileForm.errors?.namesAreEqual && (lastName.touched || lastName.dirty)" 
+				class="alert alert-danger">
+				First name and last name are same.
+			</div>
 		</label><br>
 		
 		<div formGroupName="address">
