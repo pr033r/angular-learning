@@ -6,6 +6,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { AngularTestsComponent } from './angular-tests/angular-tests.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
+import { ObservablesComponent } from './observables/observables.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
 	{ path: 'detail/:id', component: HeroDetailComponent },
 	{ path: 'tests', component: AngularTestsComponent },
 	{ path: 'templateDrivenForm', component: HeroFormComponent },
-	{ path: 'reactiveForm', component: NameEditorComponent }
+	{ path: 'reactiveForm', component: NameEditorComponent },
+	{ path: 'observables', component: ObservablesComponent }
 ];
 
 @NgModule({

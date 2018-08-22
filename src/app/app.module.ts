@@ -16,6 +16,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { AngularTestsComponent } from './angular-tests/angular-tests.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
+import { ObservablesComponent } from './observables/observables.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NameEditorComponent } from './name-editor/name-editor.component';
     HeroSearchComponent,
     AngularTestsComponent,
     HeroFormComponent,
-    NameEditorComponent
+    NameEditorComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,
