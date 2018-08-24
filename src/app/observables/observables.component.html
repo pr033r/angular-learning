@@ -1,12 +1,17 @@
+<h1>Observer</h1>
 <br>
+<img style="width: 400px;" src="../../assets/Observer.png">
+<br>
+<img style="width: 400px;" src="../../assets/Observer_example1.png">
+<br><br>
+
+<div id="mouse-box" style="width: 200px; height: 200px; background: gray; color: white;">Get mouse on me</div>
+<p>mouse x: {{mouseX}}, mouse y: {{mouseY}} </p>
+<br>
+
 <ul>
 	<li *ngFor="let item of observableMessages">
 		{{item}}
 	</li>
 </ul>
-<h3>Custom observable</h3>
-<ul>
-	<li *ngFor="let item of customObservableMessages">
-		{{item}}
-	</li>
-</ul>
+<input type="text" id="name" placeholder="press escape...">
