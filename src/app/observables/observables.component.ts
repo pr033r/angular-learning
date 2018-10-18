@@ -21,7 +21,8 @@ export class ObservablesComponent implements OnInit {
 
 	public ESC_KEY: number = 27;
 
-	public mouseX: number = 0, mouseY: number = 0;
+	public mouseX: number = 0;
+	public mouseY: number = 0;
 
 	constructor() { }
 
@@ -78,7 +79,7 @@ export class ObservablesComponent implements OnInit {
 		});
 
 		const numbers = of(1, 5, 7);
-		const squareNumbers = map(val => val * val);
+		const squareNumbers = map(val => +val * +val);
 		const squaredNumbers = squareNumbers(numbers);
 		squaredNumbers.subscribe(x => console.log(`squared number: ${x}`));
 
